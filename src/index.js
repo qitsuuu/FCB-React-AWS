@@ -1,8 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-//My first component
-function HelloWorld(){
-	return <h1> Hello world! </h1>;
+import "./index.css";
+
+function App(){
+	return(
+		<div className="app"> 
+			<header classname="app-header">
+			<h1>Qit's To-Do List</h1>
+			<p>Take 2, after 3 years</p>
+			</header>
+		</div>
+	)
 }
 
-ReactDOM.render(<HelloWorld></HelloWorld>, document.getElementById("root"));
+ReactDOM.render(<App></App>, document.getElementById("root"));
