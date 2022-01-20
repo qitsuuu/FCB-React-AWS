@@ -3,12 +3,21 @@ import ReactDOM from "react-dom";
 import "./index.css";
 
 //This is a function-based component and can be reused.
+function Task(props){
+
+	console.log(props)
+	return(
+		<li className="tasks-item">{props.taskName}</li>
+	)
+}
+
+
 function Taskslist(){
 	return(
 		<ul>
-				<li className="tasks-item">React Web Development</li>
-				<li className="tasks-item">Nihongo N4 Studies</li>
-				<li className="tasks-item">Test Automation</li>
+				<Task taskName="React Web Development"/>
+				<Task taskName="Nihongo N4 Study"/>
+				<Task taskName="Test Automation"/>
 			</ul>
 		
 	)
@@ -20,7 +29,6 @@ function App(){
 	const paraStyle = {
 		"marginBottom":"15px"
 	};
-
 
 	return(
 		<div className="app">
