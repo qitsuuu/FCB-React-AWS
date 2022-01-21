@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Task from "./Task";
 
 //this is now a functional component
@@ -9,15 +10,27 @@ function Taskslist(){
         "Test Automation",
         "Cookies"
     ];
+
+
+const [taskValue, setTaskValue] = useState("Just another task"); // to store and update data temporarily
+    console.log("taskValue: ", taskValue);
+
+const inputChangeHandler = (e)=>{
+setTaskValue(e.target.value)
+}; // anonymous function to check
+
     
     //in a codeblock, needs another return statement because we have a callback function (a function) inside.
     //in a codeblock, you can add other logic, functions inside like console.log() ...
         return(
             <div>
             <ul>
-                <input className="task-input"/>
-                    {taskItemList.map((task, index)=>{
-                        console.log(task);
+                <input
+                className="task-input"
+                placeholder="Create a new task"
+                onChange={inputChangeHandler}/>
+
+                 {taskItemList.map((task, index)=>{
     
                         return <Task key={index} taskName={task}/>
                     //it should be pair of a key and value, because each child has to have identification
