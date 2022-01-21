@@ -3,21 +3,27 @@ import Task from "./Task";
 
 //this is now a functional component
 function Taskslist(){
-    const taskItemList = [
+    const [taskItemList, setTaskItemsList] = useState([
     
         "React Web Development",
         "Nihongo N4 Study",
         "Test Automation",
         "Cookies"
-    ];
+    ]);
 
 
-const [taskValue, setTaskValue] = useState("Just another task"); // to store and update data temporarily
-    console.log("taskValue: ", taskValue);
+const [taskValue, setTaskValue] = useState(""); // to store and update data temporarily
+    // console.log("taskValue: ", taskValue);
 
 const inputChangeHandler = (e)=>{
 setTaskValue(e.target.value)
-}; // anonymous function to check
+};
+
+const addTaskHandler = (e) =>{
+    //setTaskItemsList([e.target.value, ...taskItemList]) //spread operator to enumerator all values in the array
+    setTaskItemsList([taskValue, ...taskItemList])
+    setTaskValue("");
+};
 
     
     //in a codeblock, needs another return statement because we have a callback function (a function) inside.
@@ -28,7 +34,10 @@ setTaskValue(e.target.value)
                 <input
                 className="task-input"
                 placeholder="Create a new task"
-                onChange={inputChangeHandler}/>
+                onChange={inputChangeHandler}
+                onBlur={addTaskHandler} // to bind, whenever the focus was removed from the input, this function will be called.
+                value ={taskValue} // to set the default to empty.
+                />
 
                  {taskItemList.map((task, index)=>{
     
