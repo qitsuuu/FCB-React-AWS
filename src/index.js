@@ -13,14 +13,31 @@ function Task(props){
 
 
 function Taskslist(){
+const taskItemList = [
+
+	"React Web Development",
+	"Nihongo N4 Study",
+	"Test Automation",
+	"Cookies"
+];
+
+//in a codeblock, needs another return statement because we have a callback function (a function) inside.
+//in a codeblock, you can add other functions inside like console.log() ...
 	return(
 		<ul>
-				<Task taskName="React Web Development"/>
-				<Task taskName="Nihongo N4 Study"/>
-				<Task taskName="Test Automation"/>
+				{taskItemList.map((task, index)=>{
+					console.log(task);
+
+					return <Task key={index} taskName={task}/>
+				//it should be pair of a key and value, because each child has to have identification
+				})}
 			</ul>
 		
 	)
+
+	// another way to simplify is this, not in a codeblock.
+	// {taskItemList.map(task=> (<Task taskName={task}/>
+	// ))}
 }
 
 
