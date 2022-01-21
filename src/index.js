@@ -22,9 +22,11 @@ const taskItemList = [
 ];
 
 //in a codeblock, needs another return statement because we have a callback function (a function) inside.
-//in a codeblock, you can add other functions inside like console.log() ...
+//in a codeblock, you can add other logic, functions inside like console.log() ...
 	return(
+		<div>
 		<ul>
+			<input className="task-input"/>
 				{taskItemList.map((task, index)=>{
 					console.log(task);
 
@@ -32,6 +34,7 @@ const taskItemList = [
 				//it should be pair of a key and value, because each child has to have identification
 				})}
 			</ul>
+			</div> // or use <> </> or called ReactFragment, when you use <div> it will create a new node that can be identified by the browser
 		
 	)
 
